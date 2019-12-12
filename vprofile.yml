@@ -50,4 +50,4 @@
     - wait_for: path=/home/ansadm/apache-tomcat-8.5.49/webapps/
 
     - name: Link latest vprofile version
-      file: src=/home/ansadm/apache-tomcat-8.5.49/webapps/{{vprofile-version}}  dest=/home/ansadm/apache-tomcat-8.5.49/webapps/VProfile state=link
+      file: src=/home/ansadm/apache-tomcat-8.5.49/webapps/{{time}}-{{build}}  dest=/home/ansadm/apache-tomcat-8.5.49/webapps/VProfile state=link
