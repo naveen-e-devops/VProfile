@@ -47,15 +47,8 @@
       shell: nohup  nohup /home/ansadm/apache-tomcat-8.5.49/bin/shutdown &
    
     - name: Copy artifact to tomcat folder
-      shell: cp /tmp/{{vprofile_version}} /home/ansadm/apache-tomcat-8.5.49/webapps/vprofile
+      shell: cp /tmp/{{vprofile_version}} /home/ansadm/apache-tomcat-8.5.49/webapps/vprofile.war
 
     - name: Start tomcat service
       shell: nohup /home/ansadm/apache-tomcat-8.5.49/bin/startup.sh &
-    - wait_for: path=/home/ansadm/apache-tomcat-8.5.49/webapps/
 
-   # - name: Link latest vprofile version
-    #  file: 
-     #   src: /home/ansadm/apache-tomcat-8.5.49/webapps/{{time}}-{{build}}  
-      #  dest: /home/ansadm/apache-tomcat-8.5.49/webapps/VProfile 
-       # state: link 
-        #remote_src: yes
