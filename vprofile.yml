@@ -1,3 +1,4 @@
+---
 - hosts: tomcatservers
   become: yes
   vars:
@@ -37,17 +38,24 @@
         remote_src: yes
   
     - name: Download latest VProfile.war file
-      get_url: url=http://{{nexusip}}:8081/nexus/content/repositories/VProfile-repo/{{groupid}}/{{time}}/{{build}}/{{vprofile_version}} dest=/tmp/ mode=755
+      get_url: 
+        url: http://{{nexusip}}:8081/nexus/content/repositories/VProfile-repo/{{groupid}}/{{time}}/{{build}}/{{vprofile_version}} 
+        dest: /tmp/ 
+        mode: 755
  
     - name: stop tomcat service
       shell: nohup  nohup /home/ansadm/apache-tomcat-8.5.49/bin/shutdown &
    
     - name: Copy artifact to tomcat folder
-      shell: cp /tmp/{{vprofile_version}} /home/ansadm/apache-tomcat-8.5.49/webapps/
+      shell: cp /tmp/{{vprofile_version}} /home/ansadm/apache-tomcat-8.5.49/webapps/vprofile
 
     - name: Start tomcat service
       shell: nohup /home/ansadm/apache-tomcat-8.5.49/bin/startup.sh &
     - wait_for: path=/home/ansadm/apache-tomcat-8.5.49/webapps/
 
-    - name: Link latest vprofile version
-      file: src=/home/ansadm/apache-tomcat-8.5.49/webapps/{{time}}-{{build}}  dest=/home/ansadm/apache-tomcat-8.5.49/webapps/VProfile state=link remote_src=yes
+   # - name: Link latest vprofile version
+    #  file: 
+     #   src: /home/ansadm/apache-tomcat-8.5.49/webapps/{{time}}-{{build}}  
+      #  dest: /home/ansadm/apache-tomcat-8.5.49/webapps/VProfile 
+       # state: link 
+        #remote_src: yes
