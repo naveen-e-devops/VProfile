@@ -55,6 +55,5 @@
     - name: Link latest vprofile version
       file: 
         src: /home/ansadm/apache-tomcat-8.5.50/webapps/{{vprofile_version}} 
-        dest: /home/ansadm/apache-tomcat-8.5.50/webapps/VProfile 
-        state: link 
+        dest: /home/ansadm/apache-tomcat-8.5.50/webapps/vprofile.war
         remote_src: yes
