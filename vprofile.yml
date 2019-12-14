@@ -2,7 +2,7 @@
 - hosts: tomcatservers
   become: yes
   vars:
-    tomcat: http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.49/bin/apache-tomcat-8.5.49.tar.gz
+    tomcat: http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz
   tasks:
 
 
@@ -44,13 +44,13 @@
         mode: 755
  
     - name: stop tomcat service
-      shell: nohup  nohup /home/ansadm/apache-tomcat-8.5.49/bin/shutdown &
+      shell: nohup  nohup /home/ansadm/apache-tomcat-8.5.50/bin/shutdown &
    
     - name: Copy artifact to tomcat folder
-      shell: cp /tmp/{{vprofile_version}} /home/ansadm/apache-tomcat-8.5.49/webapps/vprofile.war
+      shell: cp /tmp/{{vprofile_version}} /home/ansadm/apache-tomcat-8.5.50/webapps/vprofile.war
 
     - name: Start tomcat service
-      shell: nohup /home/ansadm/apache-tomcat-8.5.49/bin/startup.sh &
+      shell: nohup /home/ansadm/apache-tomcat-8.5.50/bin/startup.sh &
 
     - name: Link latest vprofile version
       file: 
