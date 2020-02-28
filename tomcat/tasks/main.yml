@@ -1,2 +1,16 @@
 ---
 # tasks file for tomcat
+#deploy-war.yml  download-war.yml  java-install.yml  main.yml  remove-old-war.yml  tomcat-install.yml
+
+
+- include_tasks: java-install.yml
+
+- include_tasks: tomcat-install.yml
+
+- include_tasks: remove-old-war.yml
+
+- include_tasks: download-war.yml
+
+- include_tasks: deploy-war.yml
+
+
