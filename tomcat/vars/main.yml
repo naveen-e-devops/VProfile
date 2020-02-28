@@ -17,7 +17,7 @@ repoid: vprofile-repo
 
 artifact: vprofile 
 
-buildid: 13
+buildid: $BUILD_ID
 
 vprofile_version: vprofile-13.war
 
