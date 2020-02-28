@@ -19,7 +19,7 @@ artifact: vprofile
 
 buildid: BUILD_ID
 
-vprofile_version: vprofile-13.war
+vprofile_version: vprofile-BUILD_ID.war
 
 uname: tomcat
 grp: tomcat
