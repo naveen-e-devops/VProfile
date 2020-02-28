@@ -1,0 +1,12 @@
+- name: install opejdk
+  yum:
+    name: "{{jdkc}}"
+    state: present
+  when: ansible_os_family == "RedHat"
+ 
+    
+- name: install opejdk
+  apt:
+    name: "{{jdku}}"
+    state: present
+  when: ansible_os_family == "Debian"

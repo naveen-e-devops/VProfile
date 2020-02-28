@@ -1,0 +1,15 @@
+- name: Download tomcat tar ball
+  get_url:
+    url: "{{tomcaturl}}"
+    dest: /opt
+    #owner: tomcat
+    #group: tomcat
+  register: tomcatpath
+
+- name: extract tomcat tar file
+  unarchive:
+    src: "{{tomcatpath.dest}}"
+    dest: /opt
+    owner: "{{uname}}"
+    group: "{{grp}}"
+    remote_src: yes
