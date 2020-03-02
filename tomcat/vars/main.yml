@@ -7,7 +7,7 @@ jdkc: java
 
 tomcaturl: http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz
 
-nexusip: 34.67.251.135
+nexusip: 34.70.181.69
 
 tomcat_home_dir: /opt/apache-tomcat-8.5.51
 
