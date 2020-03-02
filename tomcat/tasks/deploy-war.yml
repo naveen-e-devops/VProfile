@@ -2,8 +2,8 @@
   copy: 
     src: /tmp/{{version}}-{{buildid}}.war
     dest: "{{tomcat_home_dir}}/webapps/vprofile.war"
-    owner: "{{uname}}
-    group: "{{grp}}
+    owner: "{{uname}}"
+    group: "{{grp}}"
     remote_src: yes
    
 - name: stop tomcat service
