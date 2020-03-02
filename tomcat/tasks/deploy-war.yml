@@ -1,6 +1,6 @@
 - name: deploy war file into webapps 
   copy: 
-    src: /tmp/{{version}}-{{buidid}}.war
+    src: /tmp/{{version}}-{{buildid}}.war
     dest: "{{tomcat_home_dir}}/webapps/vprofile.war"
     remote_src: yes
    
