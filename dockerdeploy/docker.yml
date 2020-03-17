@@ -23,7 +23,7 @@
     - name: pull docker image from hub
       docker_image:
         name: "{{docker-image}}"
-         source: pull
+        source: pull
 
     - name: Run docker container
       docker_container:
