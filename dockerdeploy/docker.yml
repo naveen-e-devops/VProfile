@@ -19,6 +19,9 @@
         name: "{{docker_deamon}}"
         state: started
         enabled: yes
+       
+    -name: docker dependency module
+     shell: pip install docker 
 
     - name: pull docker image from hub
       docker_image:
