@@ -1,8 +1,10 @@
 - name: deploy war file into webapps 
   copy: 
-    src: /tmp/{{vprofile_version}}
+    src: /tmp/{{version}}-{{buildid}}.war
     dest: "{{tomcat_home_dir}}/webapps/vprofile.war"
-    remote_src: yes
+    owner: "{{uname}}"
+    group: "{{grp}}"
+    remote_src: yes  
    
 - name: stop tomcat service
-  shell: nohup "{{tomcat_home_dir}}/bin/startup.sh &"
+  shell: nohup {{tomcat_home_dir}}/bin/startup.sh &

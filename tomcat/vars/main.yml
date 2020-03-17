@@ -7,7 +7,7 @@ jdkc: java
 
 tomcaturl: http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz
 
-nexusip: 34.66.38.231
+nexusip: 34.70.181.69
 
 tomcat_home_dir: /opt/apache-tomcat-8.5.51
 
@@ -17,9 +17,9 @@ repoid: vprofile-repo
 
 artifact: vprofile 
 
-buildid: 13
+#buildid: `$BUILD_ID`
 
-vprofile_version: vprofile-13.war
+version: vprofile
 
 uname: tomcat
 grp: tomcat
