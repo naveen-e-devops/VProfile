@@ -20,19 +20,5 @@
         state: started
         enabled: yes
        
-    - name: docker dependency module
-      shell: pip install docker 
-
-    - name: pull docker image from hub
-      docker_image:
-        name: "{{docker_images}}"
-        source: pull
-
-    - name: Run docker container
-      docker_container:
-        name: vprofile-app
-        image: "{{docker_images}}"
-        state: started
-        restart: yes
-        ports:
-         - "8080:8080"
+    - name: docker container run
+      shell: docker run -itd --name vprofile-app -p 8080:8080 "{{docker_images}}"
