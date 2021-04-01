@@ -39,7 +39,7 @@ peline {
        stage("nexus uploader"){
            steps{
                //uploading artifact into nexus repo
-               nexusArtifactUploader artifacts: [[artifactId: 'vprofile', classifier: '', file: 'target/vprofile-v1.war', type: 'war']], credentialsId: '34952091-6fcc-4fc5-b1f5-df8a88f9daff', groupId: 'DEV', nexusUrl: '10.128.0.4:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'vprofile-repo', version: '$BUILD_ID'
+               nexusArtifactUploader artifacts: [[artifactId: 'vprofile', classifier: '', file: 'target/vprofile-v1.war', type: 'war']], credentialsId: 'nexuslogin', groupId: 'DEV', nexusUrl: '3.97.142.138:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'test-repo', version: '$BUILD_ID'
                
            }
            
