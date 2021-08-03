@@ -21,8 +21,8 @@ phases:
       - echo Build completed on `date`
       - mvn package
       - mvn surefire-report:report
-  reports:
-    SurefireReports: # CodeBuild will create a report group called "SurefireReports".
+reports:
+  SurefireReports: # CodeBuild will create a report group called "SurefireReports".
     files: #Store all of the files
       - '**/*'
     base-directory: 'target/surefire-reports'
