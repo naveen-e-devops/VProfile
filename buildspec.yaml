@@ -20,7 +20,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
-      - mvn surefire-report:report
+      - mvn test:report
 reports:
   SurefireReports: # CodeBuild will create a report group called "SurefireReports".
     files: #Store all of the files
