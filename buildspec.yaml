@@ -6,25 +6,31 @@ phases:
       java: corretto8
   build:
     commands:
+      # uninstall awscli version 1
+      - pip3 uninstall -y awscli
+      # install awscli version 2
+      - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - unzip awscliv2.zip
+      - ./aws/install
       # Upgrade AWS CLI to the latest version
-      - pip install --upgrade awscli
+      #- pip install --upgrade awscli
       # due to https://github.com/aws/aws-cli/issues/4087 use 1.16.141
       #- pip install --upgrade pip
       #- pip install wheel
       #- pip install awscli==1.16.141
       # install node as a dependency for apollo
-      - pip install nodejs
+      #- pip install nodejs
       #- echo Build started on `date`
       #- mvn test 
   post_build:
     commands:
       - echo Build completed on `date`
-      - mvn package surefire-report:report
-reports:
-  SurefireReports: # CodeBuild will create a report group called "SurefireReports".
-    files: #Store all of the files
-      - '**/*'
-    base-directory: 'target/surefire-reports'
+      #- mvn package surefire-report:report
+#reports:
+  #SurefireReports: # CodeBuild will create a report group called "SurefireReports".
+    #files: #Store all of the files
+     # - '**/*'
+    #base-directory: 'target/surefire-reports'
 artifacts:
   type: zip
   files:
