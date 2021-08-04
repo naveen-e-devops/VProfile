@@ -12,6 +12,7 @@ phases:
       - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       - unzip awscliv2.zip
       - ./aws/install
+      - aws --version
       # Upgrade AWS CLI to the latest version
       #- pip install --upgrade awscli
       # due to https://github.com/aws/aws-cli/issues/4087 use 1.16.141
