@@ -6,7 +6,7 @@ phases:
       java: corretto8
   build:
     commands:
-      bash aws.sh
+      - bash aws.sh
       # Upgrade AWS CLI to the latest version
       #- pip install --upgrade awscli
       # due to https://github.com/aws/aws-cli/issues/4087 use 1.16.141
@@ -20,12 +20,12 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      #- mvn package surefire-report:report
-#reports:
-  #SurefireReports: # CodeBuild will create a report group called "SurefireReports".
-    #files: #Store all of the files
-     # - '**/*'
-    #base-directory: 'target/surefire-reports'
+      - mvn package surefire-report:report
+reports:
+  SurefireReports: # CodeBuild will create a report group called "SurefireReports".
+    files: #Store all of the files
+     - '**/*'
+    base-directory: 'target/surefire-reports'
 artifacts:
   type: zip
   files:
