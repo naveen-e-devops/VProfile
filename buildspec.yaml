@@ -30,3 +30,7 @@ artifacts:
   type: zip
   files:
     - '**/*'
+
+cache:
+  paths:
+    - '/root/.m2/**/*'       
