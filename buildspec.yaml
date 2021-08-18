@@ -25,7 +25,7 @@ reports:
   SurefireReports: # CodeBuild will create a report group called "SurefireReports".
     files: #Store all of the files
      - '**/*'
-    #base-directory: 'target/surefire-reports'
+    base-directory: 'target/surefire-reports'
 artifacts:
   type: zip
   files:
