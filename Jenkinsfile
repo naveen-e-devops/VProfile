@@ -23,20 +23,7 @@ pipeline {
         }
         stage('uploadartficat'){
             steps{
-                nexusArtifactUploader {
-                nexusVersion("nexus2")
-                protocol("http")
-                nexusUrl("13.126.87.95:8081/nexus")
-                groupId("QA")
-                version("$BUILD_ID")
-                repository("vprofile")
-                credentialsId("27adc3cf-87da-42ac-a392-59469769144e")
-                artifact {
-                   artifactId("vprofile-id")
-                   type("war")
-                    file("**/*.war")
-                  }
-               }
+                nexusArtifactUploader artifacts: [[artifactId: 'vprofile-id', classifier: '', file: 'target/vprofile-v1.war', type: 'war']], credentialsId: '27adc3cf-87da-42ac-a392-59469769144e', groupId: 'QA', nexusUrl: '13.126.87.95:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'vprofile', version: '$BUILD_ID'
            }
         }
     }
