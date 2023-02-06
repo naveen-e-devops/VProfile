@@ -35,8 +35,9 @@ pipeline {
                    artifactId('vprofile-id')
                    type('war')
                     file('**/*.war')
-                }
-            }
+                  }
+               }
+           }
         }
     }
 }
