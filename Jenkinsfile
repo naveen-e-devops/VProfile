@@ -61,4 +61,9 @@ pipeline {
             }
         }
     }
+    post{
+        always{
+            slacksend(channel: "#jenkins-pipeline")
+        }
+    }
 }
