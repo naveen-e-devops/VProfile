@@ -31,6 +31,23 @@ pipeline {
                 sh 'mvn checkstyle:checkstyle'
             }
         }
+        stage('Sonar Analysis') {
+            environment {
+                scannerHome = tool 'sonarqube-4'
+            }
+            steps {
+               withSonarQubeEnv('sonarqube') {
+                   sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
+                   -Dsonar.projectName=vprofile \
+                   -Dsonar.projectVersion=1.0 \
+                   -Dsonar.sources=src/ \
+                   -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
+                   -Dsonar.junit.reportsPath=target/surefire-reports/ \
+                   -Dsonar.jacoco.reportsPath=target/jacoco.exec \
+                   -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
+              }
+            }
+        }
         stage('uploadartficat'){
             steps{
                 nexusArtifactUploader artifacts: [[artifactId: 'vprofile-id', classifier: '', file: 'target/vprofile-v1.war', type: 'war']], credentialsId: '27adc3cf-87da-42ac-a392-59469769144e', groupId: 'QA', nexusUrl: '35.154.27.245:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'vprofile', version: '$BUILD_ID'
