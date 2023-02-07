@@ -26,6 +26,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Checkstyle Analysis'){
+            steps {
+                sh 'mvn checkstyle:checkstyle'
+            }
+        }
         stage('uploadartficat'){
             steps{
                 nexusArtifactUploader artifacts: [[artifactId: 'vprofile-id', classifier: '', file: 'target/vprofile-v1.war', type: 'war']], credentialsId: '27adc3cf-87da-42ac-a392-59469769144e', groupId: 'QA', nexusUrl: '35.154.27.245:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'vprofile', version: '$BUILD_ID'
