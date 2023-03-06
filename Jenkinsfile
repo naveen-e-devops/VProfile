@@ -19,6 +19,7 @@ pipeline {
             steps {
                // building my vprofile project
                sh "mvn package"
+               //test
             }
         }
     }
