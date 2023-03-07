@@ -11,7 +11,7 @@ pipeline {
         stage('clone') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/wkhanvisualpathit/VProfile.git'
+                git 'https://github.com/naveen-e-devops/VProfile.git'
             }
         }
         
@@ -20,6 +20,25 @@ pipeline {
                // building my vprofile project
                sh "mvn package"
                //test
+            }
+        }
+        stage('artifact upload'){
+            steps{
+                nexusArtifactUploader(
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                nexusUrl: '52.66.205.73:8081',
+                groupId: 'DEV',
+                version: v1,
+                repository: 'vprofile-repo',
+                credentialsId: 'nexus-creds',
+                artifacts: [
+                [artifactId: vprofileid,
+                classifier: '',
+                file: 'target/vprofile-v1.war',
+                 type: 'war']
+                ]
+            )
             }
         }
     }
