@@ -27,9 +27,9 @@ pipeline {
                 nexusArtifactUploader(
                 nexusVersion: 'nexus3',
                 protocol: 'http',
-                nexusUrl: '52.66.205.73:8081',
+                nexusUrl: '172.31.35.69:8081',
                 groupId: 'DEV',
-                version: $BUILD_NUMBER,
+                    version: "{$BUILD_NUMBER}",
                 repository: 'vprofile-repo',
                 credentialsId: 'nexus-creds',
                 artifacts: [
