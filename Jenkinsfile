@@ -49,9 +49,9 @@ pipeline {
                    -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
             }
 
-            timeout(time: 1, unit: 'MINUTES') {
-               waitForQualityGate abortPipeline: false
-            }
+            //timeout(time: 1, unit: 'MINUTES') {
+            //   waitForQualityGate abortPipeline: false
+           // }
           }
         }
         stage('artifact upload'){
