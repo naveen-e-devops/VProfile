@@ -18,7 +18,14 @@ pipeline {
         stage('build'){
             steps {
                // building my vprofile project
-               sh "mvn package"
+               sh "mvn package -Dmaven.test.skip=true"
+               //test
+            }
+        }
+        stage('test'){
+            steps {
+               // building my vprofile project
+               sh "mvn test checkstyle:checkstyle"
                //test
             }
         }
