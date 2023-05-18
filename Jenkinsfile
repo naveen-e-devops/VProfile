@@ -26,5 +26,24 @@ pipeline {
                 sh 'date'
             }
         }
+        stage('artifact upload'){
+            steps{
+                nexusArtifactUploader(
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                nexusUrl: '172.31.35.38:8081',
+                groupId: 'DEV',
+                version: "5-18",
+                repository: 'vprofile',
+                credentialsId: 'nexus3-creds',
+                artifacts: [
+                [artifactId: "vprofileid",
+                classifier: '',
+                file: 'target/vprofile-v1.war',
+                 type: 'war']
+                ]
+            )
+            }
+        }
         }
 }
