@@ -8,5 +8,11 @@ pipeline {
             }
 
         }
+        stage('BUILD'){
+            steps{
+                // mvn build 
+                sh 'mvn build'
+            }
+        }
     }
 }
