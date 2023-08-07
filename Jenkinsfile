@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages{
         stage('git clone') {
-            step{
+            steps{
                 // cloning git repo 
                 sh 'git clone https://github.com/naveen-e-devops/VProfile.git'
             }
