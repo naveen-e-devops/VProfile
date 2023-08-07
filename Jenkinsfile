@@ -4,7 +4,7 @@ pipeline {
         stage('git clone') {
             steps{
                 // cloning git repo 
-                sh 'git clone https://github.com/naveen-e-devops/VProfile.git'
+                git branch: 'test-pipeline', changelog: false, poll: false, url: 'https://github.com/naveen-e-devops/VProfile'
             }
 
         }
