@@ -21,7 +21,7 @@ pipeline {
         }
         stage('deply'){
             steps{
-                deploy adapters: [tomcat8(credentialsId: 'jenkins-tomcat', path: '', url: 'http://172.31.35.217:8080')], contextPath: '9-aug', war: 'target/vprofile-v1-${BUILD_NUMBER}.war'
+                deploy adapters: [tomcat8(credentialsId: 'jenkins-tomcat', path: '', url: 'http://172.31.35.217:8080')], contextPath: '9-aug', war: 'target/vprofile-v1.war'
             }
         }
     }
