@@ -31,7 +31,7 @@ pipeline {
         repository: 'vprofile-repo',
         credentialsId: 'nexus-creds',
         artifacts: [
-            [artifactId: vprofile-artifact-id,
+            [artifactId: "vprofile-artifact-id",
              classifier: '',
              file: 'target/vprofile-v1.war',
              type: 'war']
