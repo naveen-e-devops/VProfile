@@ -18,6 +18,31 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        stage('CODE ANALYSIS with SONARQUBE') {
+          
+		  environment {
+             scannerHome = tool 'sonarqube-5'
+          }
+
+          steps {
+            withSonarQubeEnv('sonarqube') {
+               sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
+                   -Dsonar.projectName=vprofile-repo \
+                   -Dsonar.projectVersion=1.0 \
+                   -Dsonar.sources=src/ \
+                   -Dsonar.login=admin \
+                   -Dsonar.password=admin123 \
+                   -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
+                   -Dsonar.junit.reportsPath=target/surefire-reports/ \
+                   -Dsonar.jacoco.reportsPath=target/jacoco.exec \
+                   -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
+            }
+
+            //timeout(time: 1, unit: 'MINUTES') {
+            //   waitForQualityGate abortPipeline: false
+           // }
+          }
+        }
 
       stage('nexus artifact uploader'){
 
@@ -25,7 +50,7 @@ pipeline {
         nexusArtifactUploader(
         nexusVersion: 'nexus3',
         protocol: 'http',
-        nexusUrl: '43.205.195.201:8081/',
+        nexusUrl: '13.126.77.10:8081/',
         groupId: 'QA',
         version: "$BUILD_ID",
         repository: 'vprofile-repo',
@@ -43,7 +68,7 @@ pipeline {
 
   stage('deploy to tomact'){
   steps{
-        deploy adapters: [tomcat8(credentialsId: 'tomcat-creds', path: '', url: 'http://15.207.54.81:8080')], contextPath: 'vprofile', war: 'target/vprofile-v1.war'
+        deploy adapters: [tomcat8(credentialsId: 'tomcat-creds', path: '', url: 'http://3.110.168.186:8080')], contextPath: 'vprofile', war: 'target/vprofile-v1.war'
 
 }
 
