@@ -26,7 +26,7 @@ pipeline {
               repository: 'vprofile-repo',
               credentialsId: 'nexuscreds',
               artifacts: [
-                 [artifactId: vprofile,
+                 [artifactId: "vprofile",
                  classifier: '',
                  file: 'target/vprofile-v1.war',
                  type: 'war']
