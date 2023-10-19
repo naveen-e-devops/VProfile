@@ -50,7 +50,7 @@ pipeline {
         nexusArtifactUploader(
         nexusVersion: 'nexus3',
         protocol: 'http',
-        nexusUrl: '13.126.77.10:8081/',
+        nexusUrl: '35.154.240.231:8081/',
         groupId: 'QA',
         version: "$BUILD_ID",
         repository: 'vprofile-repo',
@@ -68,7 +68,7 @@ pipeline {
 
   stage('deploy to tomact'){
   steps{
-        deploy adapters: [tomcat8(credentialsId: 'tomcat-creds', path: '', url: 'http://3.110.168.186:8080')], contextPath: 'vprofile', war: 'target/vprofile-v1.war'
+        deploy adapters: [tomcat8(credentialsId: 'tomcat-creds', path: '', url: 'http://43.204.145.203:8080')], contextPath: 'vprofile', war: 'target/vprofile-v1.war'
 
 }
 
