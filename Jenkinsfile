@@ -28,7 +28,7 @@ pipeline {
               artifacts: [
                  [artifactId: "vprofile",
                  classifier: '',
-                 file: "target/vprofile-v1-$BUILD_ID/.war",
+                 file: "target/vprofile-v1.war",
                  type: 'war']
                 ]
             )
