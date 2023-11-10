@@ -25,7 +25,7 @@ pipeline {
                   protocol: 'http',
                   nexusUrl: '172.31.36.77:8081',
                   groupId: 'QA-server',
-                  version: "nov-11",
+                  version: "$BUILD_ID",
                   repository: 'vprofile-repo',
                   credentialsId: 'nexuscreds',
                     artifacts: [
