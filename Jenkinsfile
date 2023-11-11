@@ -62,5 +62,10 @@ pipeline {
                 )
             }
         }
+        stage('Deploy'){
+            steps{
+                deploy adapters: [tomcat8(credentialsId: 'tomcatcreds', path: '', url: 'http://13.234.115.63:8080/')], contextPath: 'vprofile', war: 'target/vprofile-v1.war'
+            }
+        }
     }
 }
