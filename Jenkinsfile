@@ -28,7 +28,7 @@ pipeline {
                 protocol: 'http',
                 nexusUrl: '13.233.208.212:8081',
                 groupId: 'DEV',
-                version: "v1",
+                version: "v2",
                 repository: 'vprofile-repo',
                 credentialsId: 'nexus-creds',
                 artifacts: [
