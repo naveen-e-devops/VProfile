@@ -5,6 +5,7 @@ pipeline {
             steps{
                 // this stage is to build the code 
                 echo "compile the source code"
+                sh 'mvn package'
             }
         }
         stage('Test'){
