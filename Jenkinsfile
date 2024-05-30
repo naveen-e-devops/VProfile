@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Deploy'){
             steps{
-                echo "deploying artifact into tomcat"
+                deploy adapters: [tomcat8(credentialsId: 'tomcat-creds', path: '', url: 'http://65.1.106.102:8080')], contextPath: null, war: 'target/vprofile-v1.war'
             }
         }
     }
