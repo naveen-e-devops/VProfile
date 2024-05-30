@@ -20,7 +20,7 @@ pipeline {
                 protocol: 'http',
                 nexusUrl: '172.31.40.179:8081',
                 groupId: 'visualpath',
-                version: 'v1',
+                version: '$BUILD_ID',
                 repository: 'vprofile-repo',
                 credentialsId: 'nexus-creds',
                 artifacts: [
